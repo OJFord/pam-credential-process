@@ -1,0 +1,13 @@
+[package]
+name = "pam-credential-process"
+version = "0.1.0"
+authors = ["Oliver Ford <dev@ojford.com>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+log = "^0.4"
+pamsm = { version = "^0.4", features = ["libpam"] }
+stderrlog = "^0.5"

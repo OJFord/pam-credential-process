@@ -1,0 +1,23 @@
+name: Rust
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run clippy
+        run: cargo clippy
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+     - uses: actions/checkout@v2
+
+     - run: sudo apt --yes update && sudo apt --yes install libpam0g-dev
+
+     - name: Run tests
+       run: cargo test
