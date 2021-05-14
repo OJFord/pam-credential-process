@@ -40,8 +40,8 @@ impl PamServiceModule for PamCredentialProcess {
             Ok(tok) => match pamh.set_authtok(&tok) {
                 Ok(_) => PamError::SUCCESS,
                 Err(e) => {
-                    eprint!("{}", e);
-                    PamError::AUTH_ERR
+                    eprint!("Failed to set auth token: {}", e);
+                    e
                 }
             },
             Err(_) => {
